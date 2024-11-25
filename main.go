@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
@@ -26,6 +27,12 @@ func main() {
 	})
 
 	router.GET("/hello", func(c *gin.Context) {
+
+		c.String(http.StatusOK, "Hello, World!")
+	})
+
+	router.GET("/wait", func(c *gin.Context) {
+		time.Sleep(5 * time.Second)
 		c.String(http.StatusOK, "Hello, World!")
 	})
 
