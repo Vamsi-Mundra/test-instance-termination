@@ -27,7 +27,7 @@ func main() {
 	})
 
 	router.GET("/hello", func(c *gin.Context) {
-
+		c.Header("Connection", "keep-alive")
 		c.String(http.StatusOK, "Hello, World!")
 	})
 
